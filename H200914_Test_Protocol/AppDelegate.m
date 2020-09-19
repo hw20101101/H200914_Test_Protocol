@@ -6,11 +6,11 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "ViewController.h" 
+@import LineSDK;
 
 @interface AppDelegate ()
  
-
 @end
 
 @implementation AppDelegate
@@ -19,6 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [[LineSDKLoginManager sharedManager] setupWithChannelID:@"1605289815" universalLinkURL:nil];
+    
     ViewController *vc = [[ViewController alloc] init];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = vc;
@@ -26,6 +28,11 @@
     return YES;
 }
 
+// NOTE: 9.0以后使用新API接口
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
+{
+    return [[LineSDKLoginManager sharedManager] application:app open:url options:options];
+}
 
 #pragma mark - UISceneSession lifecycle
 
