@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [[LineSDKLoginManager sharedManager] setupWithChannelID:@"1605289815" universalLinkURL:nil];
+    [[LineSDKLoginManager sharedManager] setupWithChannelID:@"1620019587" universalLinkURL:nil];
     
     ViewController *vc = [[ViewController alloc] init];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
